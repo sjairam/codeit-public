@@ -1,0 +1,251 @@
+#!/bin/bash
+
+start_time=$(date +%s)
+
+month=`date +%b`
+
+year=`date +%y`
+
+clear
+
+timeSec=2
+
+echo " ==>> Creating repos "
+
+cd ~/GITHUB/harvard
+mkdir APPS-INFRA
+cd APPS-INFRA
+
+echo " --> A to L"
+
+echo " --> ACORN-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/ACORN-INFRA.git
+sleep $timeSec
+
+echo " --> application-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/application-INFRA.git
+sleep $timeSec
+
+echo " --> alma sync" 
+git clone git@github.huit.harvard.edu:LTS/alma-d-sync-INFRA.git
+sleep $timeSec
+
+echo " --> aqueduct-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/aqueduct-INFRA.git
+sleep $timeSec
+
+echo " --> archecker-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/archecker-INFRA.git
+sleep $timeSec
+
+echo " --> arclight-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/arclight-INFRA.git
+sleep $timeSec
+
+echo " --> argoCD-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/argoCD-INFRA.git
+sleep $timeSec
+
+echo " --> aspace-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/aspace-INFRA.git
+sleep $timeSec
+
+echo " --> bibdatalookup-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/bibdatalookup-INFRA.git
+sleep $timeSec
+
+echo " --> booklabeler-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/booklabeler-INFRA.git
+sleep $timeSec
+
+echo " --> collex-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/collex-INFRA.git
+sleep $timeSec
+
+echo " --> curiosity-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/curiosity-INFRA.git
+sleep $timeSec
+
+echo " --> DAIS-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/DAIS-INFRA.git
+sleep $timeSec
+
+echo " --> DRS2-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/DRS2-INFRA.git
+sleep $timeSec
+
+echo " --> devsecops-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/devsecops-INFRA.git
+sleep $timeSec
+
+echo " --> drs3-migration-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/drs3-migration-INFRA.git
+sleep $timeSec
+
+echo " --> ebookplate-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/ebookplate-INFRA.git
+sleep $timeSec
+
+echo " --> eda-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/eda-INFRA.git
+sleep $timeSec
+
+echo " --> etds-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/etds-INFRA.git
+sleep $timeSec
+
+echo " --> fal-small-images-gaetway-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/fal-small-images-gateway-INFRA.git
+sleep $timeSec
+
+echo " --> fts-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/fts-INFRA.git
+sleep $timeSec
+
+echo " --> HDForms-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/HDForms-INFRA.git
+sleep $timeSec
+
+echo " --> hgl-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/hgl-INFRA.git
+sleep $timeSec
+
+echo " --> IDS-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/IDS-INFRA.git
+sleep $timeSec
+
+echo " --> imgconv-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/imgconv-INFRA.git
+sleep $timeSec
+
+echo " --> IvyPlusPod-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/IvyPlusPod-INFRA.git
+sleep $timeSec
+
+echo " --> jobmonitor-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/jobmonitor-INFRA.git
+sleep $timeSec
+
+echo " --> JSTOR-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/JSTOR-INFRA.git
+sleep $timeSec
+
+echo " --> JSTOR-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/JSTOR-RETRO-INFRA.git
+sleep $timeSec
+
+echo " --> KAFKA-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/kafka-INFRA.git
+sleep $timeSec
+
+echo " --> Leganto-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/leganto-INFRA.git
+sleep $timeSec
+
+echo " --> LibraryCloud-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/LibraryCloud-INFRA.git
+sleep $timeSec
+
+echo " --> LISTVIEW-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/LISTVIEW-INFRA.git
+sleep $timeSec
+
+echo " --> lts-pipelines-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/lts-pipelines-INFRA.git
+sleep $timeSec
+
+echo " --> M to Z"
+
+echo " --> mds-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/mds-INFRA.git
+sleep $timeSec
+
+# ARCHIVED
+# echo " --> metadata-INFRA..."
+# git clone git@github.huit.harvard.edu:LTS/metadata-operational-INFRA.git
+# sleep $timeSec
+
+echo " --> mps-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/mps-INFRA.git
+sleep $timeSec
+
+echo " --> mpsadm-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/mpsadm-INFRA.git
+sleep $timeSec
+
+# ARCHIVED
+# echo " --> Murner-INFRA..."
+# git clone git@github.huit.harvard.edu:LTS/Murner-INFRA.git
+# sleep $timeSec
+
+echo " --> nrs-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/nrs-INFRA.git
+sleep $timeSec
+
+echo " --> nrsadm-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/nrsadm-INFRA.git
+sleep $timeSec
+
+echo " --> oclcscripts-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/oclcscripts-INFRA.git
+sleep $timeSec 
+
+echo " --> olivia-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/olivia-INFRA.git
+sleep $timeSec
+
+echo " --> OCFL-Validator-Infra..."
+git clone git@github.huit.harvard.edu:LTS/OCFL-Validator-Infra.git
+sleep $timeSec
+
+echo " --> policy-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/policy-INFRA.git
+sleep $timeSec
+
+echo " --> post-drs-messaging-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/post-drs-messaging-INFRA.git
+sleep $timeSec
+
+echo " --> presto-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/presto-INFRA.git
+sleep $timeSec
+
+echo " --> reporting-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/reporting-INFRA.git
+sleep $timeSec
+
+echo " --> SDS-and-Wowza-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/SDS-and-Wowza-INFRA.git
+sleep $timeSec
+
+echo " --> secureexit-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/secureexit-INFRA.git
+sleep $timeSec
+
+echo " --> SharedShelfLinker-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/SharedShelfLinker-INFRA.git
+sleep $timeSec
+
+echo " --> solr-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/solr-INFRA.git
+sleep $timeSec
+
+echo " --> viewer-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/viewer-INFRA.git
+sleep $timeSec
+
+echo " --> whistle-INFRA..."
+git clone git@github.huit.harvard.edu:LTS/Whistle-INFRA.git
+sleep $timeSec
+
+end_time=$(date +%s)
+
+elapsed_time=$(( end_time - start_time ))
+
+# Convert elapsed time to minutes and seconds
+elapsed_minutes=$(( elapsed_time / 60 ))
+elapsed_seconds=$(( elapsed_time % 60 ))
+
+echo " ====================================================== "
+# Output the result
+echo "Elapsed time: $elapsed_minutes minutes and $elapsed_seconds seconds"
