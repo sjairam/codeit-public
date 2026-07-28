@@ -1,202 +1,245 @@
 # codeit-public
 
-Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work. Most shell scripts live in `bin_SHELL/` as editable sources; runnable copies and compiled Go binaries are in `bin/`.
+Public scripts and small utilities for AWS, Kubernetes, shell configuration, and day-to-day ops work.
+
+> **Auto-generated** — last scanned **2026-07-28 17:45:08 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+
+<!-- README:AUTO-START -->
 
 ## Repository layout
 
-| Path | Description |
-|------|-------------|
-| [`bin/`](bin/) | Runnable scripts and pre-built Go binaries (add to your `PATH` or invoke directly) |
-| [`bin_SHELL/`](bin_SHELL/) | Shell script sources — edit here, then copy or symlink into `bin/` as needed |
-| [`go/`](go/) | Go source for AWS helpers and a password generator; see [`go/BUILD.md`](go/BUILD.md) for build commands |
+| Path | Files | Description |
+|------|------:|-------------|
+| [`bin/`](bin/) | 11 | Runnable scripts and pre-built binaries |
+| [`bin_SHELL/`](bin_SHELL/) | 8 | Editable shell script sources |
+| [`go/`](go/) | 4 | Go source and build notes |
+| [`zsh/`](zsh/) | 10 | Zsh configuration fragments and functions |
+
+## Tool inventory
+
+Auto-generated from repository scan.
+
+| Name | Path | Category | Type | Description |
+|------|------|----------|------|-------------|
+| `aws-list` | [`bin/aws/aws-list`](bin/aws/aws-list) | aws | script | List running EC2 instances with ID, name, state, and private IP. |
+| `cert-list` | [`bin/aws/cert-list`](bin/aws/cert-list) | aws | script | List ACM certificates with optional detail and expired-only filtering. |
+| `list-alb` | [`bin/aws/list-alb`](bin/aws/list-alb) | aws | binary | List Application Load Balancers (name, ARN, and count). |
+| `list-rds` | [`bin/aws/list-rds`](bin/aws/list-rds) | aws | binary | List RDS instances filtered by database engine. |
+| `aws-list` | [`bin_SHELL/aws-list.sh`](bin_SHELL/aws-list.sh) | aws | shell | List running EC2 instances with ID, name, state, and private IP. |
+| `cert-list` | [`bin_SHELL/cert-list.sh`](bin_SHELL/cert-list.sh) | aws | shell | List ACM certificates with optional detail and expired-only filtering. |
+| `find_alb` | [`bin_SHELL/find_alb.sh`](bin_SHELL/find_alb.sh) | aws | shell | Find the ALB and target group registered to an EC2 instance ID. |
+| `list-alb` | [`go/list-alb.go`](go/list-alb.go) | aws | go | List Application Load Balancers (name, ARN, and count). |
+| `list-rds` | [`go/list-rds.go`](go/list-rds.go) | aws | go | List RDS instances filtered by database engine. |
+| `get-kubectl` | [`bin/get-kubectl`](bin/get-kubectl) | kubernetes | script | Download and install kubectl for Linux or macOS. |
+| `get-ns-secrets` | [`bin/get-ns-secrets`](bin/get-ns-secrets) | kubernetes | script | List Kubernetes namespaces and optionally export secrets to YAML. |
+| `delete-pods` | [`bin/kubernetes/delete-pods`](bin/kubernetes/delete-pods) | kubernetes | script | Delete all pods scheduled on a given Kubernetes node. |
+| `export-GW` | [`bin/kubernetes/export-GW`](bin/kubernetes/export-GW) | kubernetes | binary | Export gateway configuration (pre-built binary). |
+| `export-secrets` | [`bin/kubernetes/export-secrets`](bin/kubernetes/export-secrets) | kubernetes | script | Export Kubernetes secrets to per-namespace YAML files. |
+| `delete_pods` | [`bin_SHELL/delete_pods.sh`](bin_SHELL/delete_pods.sh) | kubernetes | shell | Delete all pods that are scheduled on a specific node. |
+| `get-kubectl` | [`bin_SHELL/get-kubectl.sh`](bin_SHELL/get-kubectl.sh) | kubernetes | shell | Download and install kubectl for Linux or macOS. |
+| `get_versions_v12` | [`bin_SHELL/get_versions_v12.sh`](bin_SHELL/get_versions_v12.sh) | kubernetes | shell | Audit platform component versions across kubectl contexts. |
+| `gen-passwd` | [`bin/gen-passwd`](bin/gen-passwd) | general | binary | Interactive password generator with letters, symbols, and numbers. |
+| `biggest_files` | [`bin_SHELL/biggest_files.sh`](bin_SHELL/biggest_files.sh) | general | shell | Find the largest files in a directory. |
+| `gen-passwd` | [`go/gen-passwd.go`](go/gen-passwd.go) | general | go | Interactive password generator with letters, symbols, and numbers. |
+| `00-zshrc` | [`zsh/00-zshrc`](zsh/00-zshrc) | shell | file | If you come from bash you might have to change your $PATH. export PATH=$HOME/... |
+| `10-zshrc-aliases` | [`zsh/10-zshrc-aliases`](zsh/10-zshrc-aliases) | shell | file | If you come from bash you might have to change your $PATH. export PATH=$HOME/... |
+| `100-zshrc-newAWS-path` | [`zsh/100-zshrc-newAWS-path`](zsh/100-zshrc-newAWS-path) | shell | file | If you come from bash you might have to change your $PATH. export PATH=$HOME/... |
+| `1000-zshrc` | [`zsh/1000-zshrc`](zsh/1000-zshrc) | shell | file | If you come from bash you might have to change your $PATH. export PATH=$HOME/... |
+| `20-zshrc-path` | [`zsh/20-zshrc-path`](zsh/20-zshrc-path) | shell | file | If you come from bash you might have to change your $PATH. export PATH=$HOME/... |
+| `30-zshrc-functions` | [`zsh/30-zshrc-functions`](zsh/30-zshrc-functions) | shell | file | If you come from bash you might have to change your $PATH. export PATH=$HOME/... |
+| `40-zshrc-sshkeys` | [`zsh/40-zshrc-sshkeys`](zsh/40-zshrc-sshkeys) | shell | file | If you come from bash you might have to change your $PATH. export PATH=$HOME/... |
+| `50-zshrc-istios` | [`zsh/50-zshrc-istios`](zsh/50-zshrc-istios) | shell | file | If you come from bash you might have to change your $PATH. export PATH=$HOME/... |
+| `fino-time.zsh` | [`zsh/themes/fino-time.zsh`](zsh/themes/fino-time.zsh) | shell | zsh | fino-time.zsh-theme |
+| `github-INFRA` | [`bin/github-INFRA`](bin/github-INFRA) | environment | script | Clones Harvard LTS *-INFRA Git repositories into a local APPS-INFRA folder. |
+| `backup` | [`bin_SHELL/backup.sh`](bin_SHELL/backup.sh) | environment | shell | Backs up Documents, media, dotfiles, and config to an external USB volume. |
 
 ## Prerequisites
 
-| Tool | Used by |
-|------|---------|
-| [AWS CLI v2](https://aws.amazon.com/cli/) | AWS scripts (`aws-list`, `cert-list`, `find_alb`, `list-alb`, `list-rds`) |
-| [kubectl](https://kubernetes.io/docs/tasks/tools/) | Kubernetes scripts (`delete_pods`, `get-ns-secrets`, `get_versions_v12`, `get-kubectl`) |
-| [Go](https://go.dev/) | Building binaries from `go/`; `list-rds` checks for Go at runtime |
-| `curl` | `get-kubectl` |
-| `python3` (optional) | `cert-list` — robust ACM expiry parsing on macOS |
+| Tool | Used for | Scripts |
+|------|----------|---------|
+| [AWS CLI v2](https://aws.amazon.com/cli/) | AWS scripts | `aws-list`, `cert-list`, `find_alb`, `list-alb`, `list-rds` |
+| [kubectl](https://kubernetes.io/docs/tasks/tools/) | Kubernetes scripts | `delete-pods`, `delete_pods`, `export-GW`, `export-secrets`, `get-kubectl`, `get-ns-secrets`, `get_versions_v12` |
+| [Go](https://go.dev/) | Building binaries from `go/` | `gen-passwd`, `list-alb`, `list-rds` |
+| `curl` | kubectl installer | `get-kubectl` |
+| `python3` (optional) | ACM expiry parsing on macOS | `cert-list` |
 
-Configure AWS credentials (`aws configure` or environment variables) and a valid kubeconfig before running the cloud scripts.
+Configure AWS credentials and a valid kubeconfig before running cloud scripts.
 
 ---
 
 ## AWS utilities
 
-### `aws-list` — List running EC2 instances
-
-Lists running EC2 instances with Instance ID, Name tag, state, and private IP.
+### `aws-list` — List running EC2 instances with ID, name, state, and private IP.
 
 ```bash
-./bin/aws/aws-list              # default region from AWS config
-./bin/aws/aws-list -r us-east-1
+./bin/aws/aws-list
 ```
 
-Source: [`bin_SHELL/aws-list.sh`](bin_SHELL/aws-list.sh)
+Path: [`bin/aws/aws-list`](bin/aws/aws-list) | Type: `script` | Source: [`bin_SHELL/aws-list.sh`](bin_SHELL/aws-list.sh)
 
-### `cert-list` — List ACM certificates
-
-Lists AWS Certificate Manager certificates with optional detail and expired-only filtering.
+### `cert-list` — List ACM certificates with optional detail and expired-only filtering.
 
 ```bash
 ./bin/aws/cert-list
-./bin/aws/cert-list -r us-east-1 -d          # detailed view
-./bin/aws/cert-list -r us-east-1 -e          # expired only
 ```
 
-Source: [`bin_SHELL/cert-list.sh`](bin_SHELL/cert-list.sh)
+Path: [`bin/aws/cert-list`](bin/aws/cert-list) | Type: `script` | Source: [`bin_SHELL/cert-list.sh`](bin_SHELL/cert-list.sh)
 
-### `find_alb` — Find ALB for an EC2 instance
-
-Given an EC2 instance ID, finds the Application Load Balancer and target group that instance is registered to.
+### `list-alb` — List Application Load Balancers (name, ARN, and count).
 
 ```bash
-./bin_SHELL/find_alb.sh i-0123456789abcdef0
+./bin/aws/list-alb  # see script help
+Options:
+-p profile   AWS CLI profile to use (optional)
+-r region    AWS region to use (optional)
 ```
 
-### `list-alb` — List Application Load Balancers
+Path: [`bin/aws/list-alb`](bin/aws/list-alb) | Type: `binary` | Source: [`go/list-alb.go`](go/list-alb.go) | Pre-built binary (rebuild from Go source where available)
 
-Go wrapper around `aws elbv2 describe-load-balancers`. Filters to ALBs (type `application`) and prints name, ARN, and count.
+### `list-rds` — List RDS instances filtered by database engine.
 
 ```bash
-./bin/aws/list-alb
-./bin/aws/list-alb -p my-profile -r us-east-1
+=
 ```
 
-Source: [`go/list-alb.go`](go/list-alb.go) — rebuild with:
+Path: [`bin/aws/list-rds`](bin/aws/list-rds) | Type: `binary` | Source: [`go/list-rds.go`](go/list-rds.go) | Pre-built binary (rebuild from Go source where available)
+
+### `find_alb` — Find the ALB and target group registered to an EC2 instance ID.
 
 ```bash
-go build -o bin/aws/list-alb go/list-alb.go
+./bin_SHELL/find_alb.sh
 ```
 
-### `list-rds` — List RDS instances by engine
-
-Lists RDS instances filtered by database engine.
-
-```bash
-./bin/aws/list-rds postgres
-./bin/aws/list-rds mysql
-./bin/aws/list-rds oracle-ee
-```
-
-Source: [`go/list-rds.go`](go/list-rds.go) — rebuild with:
-
-```bash
-go build -o bin/aws/list-rds go/list-rds.go
-```
+Path: [`bin_SHELL/find_alb.sh`](bin_SHELL/find_alb.sh) | Type: `shell`
 
 ---
 
 ## Kubernetes utilities
 
-### `get-kubectl` — Install kubectl
-
-Downloads and installs kubectl for Linux or macOS (`amd64` / `arm64`). Installs to `/usr/local/bin` (uses `sudo` when needed).
+### `get-kubectl` — Download and install kubectl for Linux or macOS.
 
 ```bash
-./bin/get-kubectl              # latest stable
-./bin/get-kubectl v1.32.0
-./bin/get-kubectl 1.32.0       # v prefix added automatically
+./bin/get-kubectl
 ```
 
-Source: [`bin_SHELL/get-kubectl.sh`](bin_SHELL/get-kubectl.sh)
+Path: [`bin/get-kubectl`](bin/get-kubectl) | Type: `script` | Source: [`bin_SHELL/get-kubectl.sh`](bin_SHELL/get-kubectl.sh)
 
-### `delete_pods` — Delete pods on a node
-
-Deletes all pods scheduled on a given Kubernetes node.
-
-```bash
-./bin_SHELL/delete_pods.sh NODE_NAME
-./bin_SHELL/delete_pods.sh NODE_NAME --fast   # force delete, zero grace period
-```
-
-Source: [`bin_SHELL/delete_pods.sh`](bin_SHELL/delete_pods.sh)
-
-### `get-ns-secrets` — List namespaces and export secrets
-
-Lists non-system Kubernetes namespaces (excluding Rancher `cattle-*`, `u-*`, `p-*` prefixes by default). Can output as lines, CSV, or a bash array assignment. Optionally dumps all secrets to a YAML file.
+### `get-ns-secrets` — List Kubernetes namespaces and optionally export secrets to YAML.
 
 ```bash
 ./bin/get-ns-secrets
-./bin/get-ns-secrets --format csv
-./bin/get-ns-secrets --format array --array-name MYNS
-./bin/get-ns-secrets --save-secrets ./backups
-./bin/get-ns-secrets --no-exclude-system
 ```
 
-### `get_versions_v12` — Platform version audit
+Path: [`bin/get-ns-secrets`](bin/get-ns-secrets) | Type: `script`
 
-Reports versions of cluster platform components across all kubectl contexts (or a single context). Checks namespaces such as ArgoCD, Cribl, Datadog, Komodor, and NFS/EFS CSI drivers in `kube-system`. Supports tabular output and file logging.
+### `delete-pods` — Delete all pods scheduled on a given Kubernetes node.
 
 ```bash
-./bin_SHELL/get_versions_v12.sh           # all contexts, default namespaces
-./bin_SHELL/get_versions_v12.sh -t        # table view
-./bin_SHELL/get_versions_v12.sh -c prod   # single context
-./bin_SHELL/get_versions_v12.sh -n argocd # single namespace
+./bin/kubernetes/delete-pods
 ```
 
-Edit `NAMESPACES_TO_CHECK_LIST` at the top of the script to add or remove namespaces.
+Path: [`bin/kubernetes/delete-pods`](bin/kubernetes/delete-pods) | Type: `script` | Source: [`bin_SHELL/delete_pods.sh`](bin_SHELL/delete_pods.sh)
 
-Source: [`bin_SHELL/get_versions_v12.sh`](bin_SHELL/get_versions_v12.sh)
+### `export-GW` — Export gateway configuration (pre-built binary).
+
+```bash
+./bin/kubernetes/export-GW
+```
+
+Path: [`bin/kubernetes/export-GW`](bin/kubernetes/export-GW) | Type: `binary` | Pre-built binary (rebuild from Go source where available)
+
+### `export-secrets` — Export Kubernetes secrets to per-namespace YAML files.
+
+```bash
+./bin/kubernetes/export-secrets
+```
+
+Path: [`bin/kubernetes/export-secrets`](bin/kubernetes/export-secrets) | Type: `script`
+
+### `get_versions_v12` — Audit platform component versions across kubectl contexts.
+
+```bash
+./bin_SHELL/get_versions_v12.sh
+```
+
+Path: [`bin_SHELL/get_versions_v12.sh`](bin_SHELL/get_versions_v12.sh) | Type: `shell`
 
 ---
 
 ## General utilities
 
-### `biggest_files` — Find largest files in a directory
-
-```bash
-./bin_SHELL/biggest_files.sh /path/to/dir
-./bin_SHELL/biggest_files.sh /path/to/dir 50   # top 50 files
-```
-
-Source: [`bin_SHELL/biggest_files.sh`](bin_SHELL/biggest_files.sh)
-
-### `gen-passwd` — Interactive password generator
-
-Prompts for counts of letters, symbols, and numbers, then generates a shuffled password.
+### `gen-passwd` — Interactive password generator with letters, symbols, and numbers.
 
 ```bash
 ./bin/gen-passwd
-go run go/gen-passwd.go
 ```
 
-Source: [`go/gen-passwd.go`](go/gen-passwd.go) — rebuild with:
+Path: [`bin/gen-passwd`](bin/gen-passwd) | Type: `binary` | Source: [`go/gen-passwd.go`](go/gen-passwd.go) | Pre-built binary (rebuild from Go source where available)
+
+### `biggest_files` — Find the largest files in a directory.
 
 ```bash
-go build -o bin/gen-passwd go/gen-passwd.go
+./bin_SHELL/biggest_files.sh
 ```
+
+Path: [`bin_SHELL/biggest_files.sh`](bin_SHELL/biggest_files.sh) | Type: `shell`
 
 ---
 
 ## Environment-specific scripts
 
-These scripts contain hard-coded local paths and are included for reference. Review and edit before use on your machine.
+### `github-INFRA` — Clones Harvard LTS *-INFRA Git repositories into a local APPS-INFRA folder.
 
-| Script | Purpose |
-|--------|---------|
-| [`bin_SHELL/backup.sh`](bin_SHELL/backup.sh) | Backs up Documents, Pictures, Movies, Desktop, and dotfiles (`~/.kube`, `~/.ssh`, `~/.aws`, etc.) to an external USB volume |
-| [`bin/github-INFRA`](bin/github-INFRA) | Clones Harvard LTS `*-INFRA` Git repositories into `~/GITHUB/harvard/APPS-INFRA` |
+```bash
+./bin/github-INFRA
+```
+
+Path: [`bin/github-INFRA`](bin/github-INFRA) | Type: `script`
+
+### `backup` — Backs up Documents, media, dotfiles, and config to an external USB volume.
+
+```bash
+./bin_SHELL/backup.sh
+```
+
+Path: [`bin_SHELL/backup.sh`](bin_SHELL/backup.sh) | Type: `shell`
+
+---
+
+## Shell configuration (`zsh/`)
+
+Modular Zsh setup files (aliases, PATH, functions, SSH keys, Istio helpers).
+
+| File | Type | Notes |
+|------|------|-------|
+| [`zsh/00-zshrc`](zsh/00-zshrc) | file | If you come from bash you might have to change your $PATH... |
+| [`zsh/10-zshrc-aliases`](zsh/10-zshrc-aliases) | file | If you come from bash you might have to change your $PATH... |
+| [`zsh/100-zshrc-newAWS-path`](zsh/100-zshrc-newAWS-path) | file | If you come from bash you might have to change your $PATH... |
+| [`zsh/1000-zshrc`](zsh/1000-zshrc) | file | If you come from bash you might have to change your $PATH... |
+| [`zsh/20-zshrc-path`](zsh/20-zshrc-path) | file | If you come from bash you might have to change your $PATH... |
+| [`zsh/30-zshrc-functions`](zsh/30-zshrc-functions) | file | If you come from bash you might have to change your $PATH... |
+| [`zsh/40-zshrc-sshkeys`](zsh/40-zshrc-sshkeys) | file | If you come from bash you might have to change your $PATH... |
+| [`zsh/50-zshrc-istios`](zsh/50-zshrc-istios) | file | If you come from bash you might have to change your $PATH... |
+| [`zsh/themes/fino-time.zsh`](zsh/themes/fino-time.zsh) | zsh | fino-time.zsh-theme |
 
 ---
 
 ## Building Go binaries
 
-Pre-built binaries in `bin/` target **macOS arm64**. To rebuild for your platform:
+Pre-built binaries in `bin/` may target a specific platform. Rebuild for your OS/arch:
 
 ```bash
-go build -o bin/aws/list-alb  go/list-alb.go
-go build -o bin/aws/list-rds  go/list-rds.go
-go build -o bin/gen-passwd    go/gen-passwd.go
+go build -o bin/gen-passwd go/gen-passwd.go
+go build -o bin/aws/list-alb go/list-alb.go
+go build -o bin/aws/list-rds go/list-rds.go
 ```
 
 See [`go/BUILD.md`](go/BUILD.md) for additional notes.
 
 ## Usage tips
 
-- Add `bin/` and `bin/aws/` to your `PATH`, or create symlinks to the tools you use regularly.
-- Shell sources in `bin_SHELL/` are the canonical versions for editing; some `bin/` copies may include small runtime tweaks (for example, `AWS_PAGER=""` in `bin/aws/aws-list`).
-- Scripts that touch secrets (`get-ns-secrets`, `backup.sh`) should be run with care — treat exported YAML and backup directories as sensitive.
+- Add `bin/`, `bin/aws/`, and `bin/kubernetes/` to your `PATH`, or symlink the tools you use.
+- Edit shell sources in `bin_SHELL/` first, then copy or sync into `bin/`.
+- Treat secret exports and backup output as sensitive data.
+
+<!-- README:AUTO-END -->
