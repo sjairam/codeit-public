@@ -1,0 +1,61 @@
+#!/bin/bash
+
+start_time=$(date +%s)
+
+month=`date +%b`
+
+year=`date +%y`
+
+clear
+
+timeSec=2
+
+echo " ==>> Creating repos "
+
+cd ~/GITHUB/personal
+mkdir -p TOOLS
+cd TOOLS
+
+echo " --> argo-cd..."
+git clone https://github.com/argoproj/argo-cd.git
+sleep $timeSec
+
+echo " --> aws-cli..."
+git clone https://github.com/aws/aws-cli.git
+sleep $timeSec
+
+echo " --> aws-ebs-csi-driver..."
+git clone https://github.com/kubernetes-sigs/aws-ebs-csi-driver.git
+sleep $timeSec
+
+echo " --> cert-manager..."
+git clone https://github.com/cert-manager/cert-manager.git
+sleep $timeSec
+
+echo " --> external-secrets..."
+git clone https://github.com/external-secrets/external-secrets.git
+sleep $timeSec
+
+echo " --> istio..."
+git clone https://github.com/istio/istio.git
+sleep $timeSec
+
+echo " --> helm..."
+git clone https://github.com/helm/helm.git
+sleep $timeSec
+
+echo " --> rke2..."
+git clone https://github.com/rancher/rke2.git
+sleep $timeSec
+
+end_time=$(date +%s)
+
+elapsed_time=$(( end_time - start_time ))
+
+# Convert elapsed time to minutes and seconds
+elapsed_minutes=$(( elapsed_time / 60 ))
+elapsed_seconds=$(( elapsed_time % 60 ))
+
+echo " ====================================================== "
+# Output the result
+echo "Elapsed time: $elapsed_minutes minutes and $elapsed_seconds seconds"
