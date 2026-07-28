@@ -4,3 +4,7 @@
 
 # Local .terraform directories
 **/.terraform/*
+
+# Logs
+*.log
+
