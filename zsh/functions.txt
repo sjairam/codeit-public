@@ -1,0 +1,15 @@
+## Update k8 info 
+###################
+
+function update_k8s_info() {
+  if command -v kubectl &>/dev/null; then
+    K8S_CLUSTER=$(kubectl config current-context 2>/dev/null)
+    K8S_NAMESPACE=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
+    [[ -z "$K8S_NAMESPACE" ]] && K8S_NAMESPACE="default"
+  else
+    K8S_CLUSTER=""
+    K8S_NAMESPACE=""
+  fi
+}
+
+precmd_functions+=(update_k8s_info)
