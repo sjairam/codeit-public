@@ -9,11 +9,13 @@ on:
     branches: [main, master]
     paths:
       - "bin/**"
-      - "bin_SHELL/**"
       - "go/**"
-      - "zsh/**"
       - "scripts/generate_readme.py"
       - ".github/workflows/update-readme.yml"
+
+      # Remove zsh from list
+      # - "bin_SHELL/**"
+      # - "zsh/**"
 
 permissions:
   contents: write
