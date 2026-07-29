@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, shell configuration, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-07-28 17:45:08 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-07-29 12:35:10 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
@@ -10,7 +10,7 @@ Public scripts and small utilities for AWS, Kubernetes, shell configuration, and
 
 | Path | Files | Description |
 |------|------:|-------------|
-| [`bin/`](bin/) | 11 | Runnable scripts and pre-built binaries |
+| [`bin/`](bin/) | 12 | Runnable scripts and pre-built binaries |
 | [`bin_SHELL/`](bin_SHELL/) | 8 | Editable shell script sources |
 | [`go/`](go/) | 4 | Go source and build notes |
 | [`zsh/`](zsh/) | 10 | Zsh configuration fragments and functions |
@@ -32,6 +32,7 @@ Auto-generated from repository scan.
 | `list-rds` | [`go/list-rds.go`](go/list-rds.go) | aws | go | List RDS instances filtered by database engine. |
 | `get-kubectl` | [`bin/get-kubectl`](bin/get-kubectl) | kubernetes | script | Download and install kubectl for Linux or macOS. |
 | `get-ns-secrets` | [`bin/get-ns-secrets`](bin/get-ns-secrets) | kubernetes | script | List Kubernetes namespaces and optionally export secrets to YAML. |
+| `github-TOOLS` | [`bin/github-TOOLS`](bin/github-TOOLS) | kubernetes | script | Elapsed time: $elapsed_minutes minutes and $elapsed_seconds seconds |
 | `delete-pods` | [`bin/kubernetes/delete-pods`](bin/kubernetes/delete-pods) | kubernetes | script | Delete all pods scheduled on a given Kubernetes node. |
 | `export-GW` | [`bin/kubernetes/export-GW`](bin/kubernetes/export-GW) | kubernetes | binary | Export gateway configuration (pre-built binary). |
 | `export-secrets` | [`bin/kubernetes/export-secrets`](bin/kubernetes/export-secrets) | kubernetes | script | Export Kubernetes secrets to per-namespace YAML files. |
@@ -58,7 +59,7 @@ Auto-generated from repository scan.
 | Tool | Used for | Scripts |
 |------|----------|---------|
 | [AWS CLI v2](https://aws.amazon.com/cli/) | AWS scripts | `aws-list`, `cert-list`, `find_alb`, `list-alb`, `list-rds` |
-| [kubectl](https://kubernetes.io/docs/tasks/tools/) | Kubernetes scripts | `delete-pods`, `delete_pods`, `export-GW`, `export-secrets`, `get-kubectl`, `get-ns-secrets`, `get_versions_v12` |
+| [kubectl](https://kubernetes.io/docs/tasks/tools/) | Kubernetes scripts | `delete-pods`, `delete_pods`, `export-GW`, `export-secrets`, `get-kubectl`, `get-ns-secrets`, `get_versions_v12`, `github-TOOLS` |
 | [Go](https://go.dev/) | Building binaries from `go/` | `gen-passwd`, `list-alb`, `list-rds` |
 | `curl` | kubectl installer | `get-kubectl` |
 | `python3` (optional) | ACM expiry parsing on macOS | `cert-list` |
@@ -131,6 +132,14 @@ Path: [`bin/get-kubectl`](bin/get-kubectl) | Type: `script` | Source: [`bin_SHEL
 ```
 
 Path: [`bin/get-ns-secrets`](bin/get-ns-secrets) | Type: `script`
+
+### `github-TOOLS` — Elapsed time: $elapsed_minutes minutes and $elapsed_seconds seconds
+
+```bash
+./bin/github-TOOLS
+```
+
+Path: [`bin/github-TOOLS`](bin/github-TOOLS) | Type: `script`
 
 ### `delete-pods` — Delete all pods scheduled on a given Kubernetes node.
 
