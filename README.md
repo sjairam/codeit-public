@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-07-29 18:48:10 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-07-29 19:46:03 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
@@ -10,7 +10,7 @@ Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
 | Path | Files | Description |
 |------|------:|-------------|
-| [`bin/`](bin/) | 13 | Runnable scripts and pre-built binaries |
+| [`bin/`](bin/) | 14 | Runnable scripts and pre-built binaries |
 | [`go/`](go/) | 4 | Go source and build notes |
 
 ## Tool inventory
@@ -23,6 +23,7 @@ Auto-generated from repository scan.
 | `cert-list` | [`bin/aws/cert-list`](bin/aws/cert-list) | aws | script | List ACM certificates with optional detail and expired-only filtering. |
 | `list-alb` | [`bin/aws/list-alb`](bin/aws/list-alb) | aws | binary | List Application Load Balancers (name, ARN, and count). |
 | `list-rds` | [`bin/aws/list-rds`](bin/aws/list-rds) | aws | binary | List RDS instances filtered by database engine. |
+| `list-secrets` | [`bin/aws/list-secrets`](bin/aws/list-secrets) | aws | script | 01 - initial - jairams 02 - Add AWS CLI check |
 | `list-alb` | [`go/list-alb.go`](go/list-alb.go) | aws | go | List Application Load Balancers (name, ARN, and count). |
 | `list-rds` | [`go/list-rds.go`](go/list-rds.go) | aws | go | List RDS instances filtered by database engine. |
 | `get-kubectl` | [`bin/get-kubectl`](bin/get-kubectl) | kubernetes | script | Download and install kubectl for Linux or macOS. |
@@ -40,7 +41,7 @@ Auto-generated from repository scan.
 
 | Tool | Used for | Scripts |
 |------|----------|---------|
-| [AWS CLI v2](https://aws.amazon.com/cli/) | AWS scripts | `aws-list`, `cert-list`, `list-alb`, `list-rds` |
+| [AWS CLI v2](https://aws.amazon.com/cli/) | AWS scripts | `aws-list`, `cert-list`, `list-alb`, `list-rds`, `list-secrets` |
 | [kubectl](https://kubernetes.io/docs/tasks/tools/) | Kubernetes scripts | `delete-pods`, `export-GW`, `export-secrets`, `get-kubectl`, `get-ns-secrets`, `github-TOOLS`, `komodor-version` |
 | [Go](https://go.dev/) | Building binaries from `go/` | `gen-passwd`, `list-alb`, `list-rds` |
 | `curl` | kubectl installer | `get-kubectl` |
@@ -86,6 +87,14 @@ Path: [`bin/aws/list-alb`](bin/aws/list-alb) | Type: `binary` | Source: [`go/lis
 ```
 
 Path: [`bin/aws/list-rds`](bin/aws/list-rds) | Type: `binary` | Source: [`go/list-rds.go`](go/list-rds.go) | Pre-built binary (rebuild from Go source where available)
+
+### `list-secrets` — 01 - initial - jairams 02 - Add AWS CLI check
+
+```bash
+./bin/aws/list-secrets
+```
+
+Path: [`bin/aws/list-secrets`](bin/aws/list-secrets) | Type: `script`
 
 ---
 
