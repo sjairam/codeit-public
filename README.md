@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-07-29 17:48:35 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-07-29 18:48:10 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
@@ -10,7 +10,7 @@ Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
 | Path | Files | Description |
 |------|------:|-------------|
-| [`bin/`](bin/) | 12 | Runnable scripts and pre-built binaries |
+| [`bin/`](bin/) | 13 | Runnable scripts and pre-built binaries |
 | [`go/`](go/) | 4 | Go source and build notes |
 
 ## Tool inventory
@@ -28,6 +28,7 @@ Auto-generated from repository scan.
 | `get-kubectl` | [`bin/get-kubectl`](bin/get-kubectl) | kubernetes | script | Download and install kubectl for Linux or macOS. |
 | `get-ns-secrets` | [`bin/get-ns-secrets`](bin/get-ns-secrets) | kubernetes | script | List Kubernetes namespaces and optionally export secrets to YAML. |
 | `github-TOOLS` | [`bin/github-TOOLS`](bin/github-TOOLS) | kubernetes | script | Elapsed time: $elapsed_minutes minutes and $elapsed_seconds seconds |
+| `komodor-version` | [`bin/komodor/komodor-version.sh`](bin/komodor/komodor-version.sh) | kubernetes | shell | komodor-version.sh.sh Report the installed Komodor agent chart version across... |
 | `delete-pods` | [`bin/kubernetes/delete-pods`](bin/kubernetes/delete-pods) | kubernetes | script | Delete all pods scheduled on a given Kubernetes node. |
 | `export-GW` | [`bin/kubernetes/export-GW`](bin/kubernetes/export-GW) | kubernetes | binary | Export gateway configuration (pre-built binary). |
 | `export-secrets` | [`bin/kubernetes/export-secrets`](bin/kubernetes/export-secrets) | kubernetes | script | Export Kubernetes secrets to per-namespace YAML files. |
@@ -40,7 +41,7 @@ Auto-generated from repository scan.
 | Tool | Used for | Scripts |
 |------|----------|---------|
 | [AWS CLI v2](https://aws.amazon.com/cli/) | AWS scripts | `aws-list`, `cert-list`, `list-alb`, `list-rds` |
-| [kubectl](https://kubernetes.io/docs/tasks/tools/) | Kubernetes scripts | `delete-pods`, `export-GW`, `export-secrets`, `get-kubectl`, `get-ns-secrets`, `github-TOOLS` |
+| [kubectl](https://kubernetes.io/docs/tasks/tools/) | Kubernetes scripts | `delete-pods`, `export-GW`, `export-secrets`, `get-kubectl`, `get-ns-secrets`, `github-TOOLS`, `komodor-version` |
 | [Go](https://go.dev/) | Building binaries from `go/` | `gen-passwd`, `list-alb`, `list-rds` |
 | `curl` | kubectl installer | `get-kubectl` |
 | `python3` (optional) | ACM expiry parsing on macOS | `cert-list` |
@@ -113,6 +114,14 @@ Path: [`bin/get-ns-secrets`](bin/get-ns-secrets) | Type: `script`
 ```
 
 Path: [`bin/github-TOOLS`](bin/github-TOOLS) | Type: `script`
+
+### `komodor-version` — komodor-version.sh.sh Report the installed Komodor agent chart version across all kube contexts.
+
+```bash
+./bin/komodor/komodor-version.sh
+```
+
+Path: [`bin/komodor/komodor-version.sh`](bin/komodor/komodor-version.sh) | Type: `shell`
 
 ### `delete-pods` — Delete all pods scheduled on a given Kubernetes node.
 
