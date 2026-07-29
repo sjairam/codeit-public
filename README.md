@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, shell configuration, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-07-29 15:35:39 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-07-29 15:36:52 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
@@ -11,7 +11,7 @@ Public scripts and small utilities for AWS, Kubernetes, shell configuration, and
 | Path | Files | Description |
 |------|------:|-------------|
 | [`bin/`](bin/) | 12 | Runnable scripts and pre-built binaries |
-| [`bin_SHELL/`](bin_SHELL/) | 8 | Editable shell script sources |
+| [`bin_SHELL/`](bin_SHELL/) | 9 | Editable shell script sources |
 | [`go/`](go/) | 4 | Go source and build notes |
 | [`zsh/`](zsh/) | 10 | Zsh configuration fragments and functions |
 
@@ -41,6 +41,7 @@ Auto-generated from repository scan.
 | `get_versions_v12` | [`bin_SHELL/get_versions_v12.sh`](bin_SHELL/get_versions_v12.sh) | kubernetes | shell | Audit platform component versions across kubectl contexts. |
 | `gen-passwd` | [`bin/gen-passwd`](bin/gen-passwd) | general | binary | Interactive password generator with letters, symbols, and numbers. |
 | `biggest_files` | [`bin_SHELL/biggest_files.sh`](bin_SHELL/biggest_files.sh) | general | shell | Find the largest files in a directory. |
+| `cleanup_purgeable` | [`bin_SHELL/cleanup_purgeable.sh`](bin_SHELL/cleanup_purgeable.sh) | general | shell | Save as cleanup_purgeable.sh |
 | `gen-passwd` | [`go/gen-passwd.go`](go/gen-passwd.go) | general | go | Interactive password generator with letters, symbols, and numbers. |
 | `00-zshrc` | [`zsh/00-zshrc`](zsh/00-zshrc) | shell | file | If you come from bash you might have to change your $PATH. export PATH=$HOME/... |
 | `10-zshrc-aliases` | [`zsh/10-zshrc-aliases`](zsh/10-zshrc-aliases) | shell | file | If you come from bash you might have to change your $PATH. export PATH=$HOME/... |
@@ -192,6 +193,14 @@ Path: [`bin/gen-passwd`](bin/gen-passwd) | Type: `binary` | Source: [`go/gen-pas
 ```
 
 Path: [`bin_SHELL/biggest_files.sh`](bin_SHELL/biggest_files.sh) | Type: `shell`
+
+### `cleanup_purgeable` — Save as cleanup_purgeable.sh
+
+```bash
+./bin_SHELL/cleanup_purgeable.sh
+```
+
+Path: [`bin_SHELL/cleanup_purgeable.sh`](bin_SHELL/cleanup_purgeable.sh) | Type: `shell`
 
 ---
 
