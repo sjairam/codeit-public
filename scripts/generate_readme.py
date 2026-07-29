@@ -13,7 +13,7 @@ from typing import Iterable
 ROOT = Path(__file__).resolve().parent.parent
 README_PATH = ROOT / "README.md"
 
-SCAN_DIRS = ("bin", "bin_SHELL", "go", "zsh")
+SCAN_DIRS = ("bin", "go")
 SKIP_NAMES = {".DS_Store", ".gitkeep"}
 SKIP_SUFFIXES = {".pyc"}
 
@@ -47,7 +47,6 @@ CATEGORY_ORDER = (
     "aws",
     "kubernetes",
     "general",
-    "shell",
     "environment",
 )
 
@@ -55,14 +54,12 @@ CATEGORY_TITLES = {
     "aws": "AWS utilities",
     "kubernetes": "Kubernetes utilities",
     "general": "General utilities",
-    "shell": "Shell configuration (`zsh/`)",
     "environment": "Environment-specific scripts",
 }
 
 PATH_CATEGORY_HINTS = {
     "bin/aws": "aws",
     "bin/kubernetes": "kubernetes",
-    "zsh": "shell",
 }
 
 NAME_CATEGORY_HINTS = {
@@ -337,8 +334,6 @@ def infer_category(path: Path, text: str) -> str:
         return "aws"
     if k8s_score > 0:
         return "kubernetes"
-    if rel_posix.startswith("zsh/"):
-        return "shell"
     if path.suffix == ".go":
         return "aws" if any(x in lower_name for x in ("alb", "rds", "aws")) else "general"
     return "general"
@@ -472,12 +467,7 @@ def apply_description_overrides(tool: Tool) -> None:
 
 
 def tools_for_sections(tools: list[Tool]) -> list[Tool]:
-    """Drop duplicates so bin/ deployables win over bin_SHELL/ and Go sources."""
-    deployable_stems = {
-        normalized_stem(t.path)
-        for t in tools
-        if t.rel_path.startswith("bin/")
-    }
+    """Drop duplicates so bin/ deployables win over Go sources."""
     go_binary_stems = {
         normalized_stem(t.path)
         for t in tools
@@ -487,21 +477,13 @@ def tools_for_sections(tools: list[Tool]) -> list[Tool]:
     section_tools: list[Tool] = []
     for tool in tools:
         stem = normalized_stem(tool.path)
-        if tool.rel_path.startswith("bin_SHELL/") and stem in deployable_stems:
-            continue
         if tool.rel_path.startswith("go/") and tool.path.suffix == ".go" and stem in go_binary_stems:
-            continue
-        if tool.rel_path.startswith("zsh/"):
             continue
         if tool.path.name in SKIP_SCAN_FILES:
             continue
         section_tools.append(tool)
 
     return section_tools
-
-
-def zsh_files(tools: list[Tool]) -> list[Tool]:
-    return sorted((t for t in tools if t.rel_path.startswith("zsh/")), key=lambda t: t.rel_path)
 
 
 def humanize_name(name: str) -> str:
@@ -522,9 +504,7 @@ def scan_tree_summary() -> list[tuple[str, int, str]]:
     summaries: list[tuple[str, int, str]] = []
     descriptions = {
         "bin": "Runnable scripts and pre-built binaries",
-        "bin_SHELL": "Editable shell script sources",
         "go": "Go source and build notes",
-        "zsh": "Zsh configuration fragments and functions",
     }
     for scan_dir in SCAN_DIRS:
         base = ROOT / scan_dir
@@ -672,7 +652,7 @@ def generate_readme(tools: list[Tool]) -> str:
     lines: list[str] = [
         "# codeit-public",
         "",
-        "Public scripts and small utilities for AWS, Kubernetes, shell configuration, and day-to-day ops work.",
+        "Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.",
         "",
         "> **Auto-generated** — last scanned **" + now + "**. "
         "Manual edits outside the marked block may be overwritten by the daily workflow.",
@@ -714,8 +694,6 @@ def generate_readme(tools: list[Tool]) -> str:
         grouped[tool.category].append(tool)
 
     for category in CATEGORY_ORDER:
-        if category == "shell":
-            continue
         cat_tools = sorted(grouped.get(category, []), key=lambda t: t.rel_path)
         if not cat_tools:
             continue
@@ -725,20 +703,6 @@ def generate_readme(tools: list[Tool]) -> str:
         lines.append("---")
         lines.append("")
 
-    zsh_items = zsh_files(tools)
-    if zsh_items:
-        lines.extend(["## Shell configuration (`zsh/`)", ""])
-        lines.append("Modular Zsh setup files (aliases, PATH, functions, SSH keys, Istio helpers).")
-        lines.append("")
-        lines.append("| File | Type | Notes |")
-        lines.append("|------|------|-------|")
-        for item in zsh_items:
-            note = item.description.replace("|", "\\|")
-            if len(note) > 60:
-                note = note[:57] + "..."
-            lines.append(f"| [`{item.rel_path}`]({item.rel_path}) | {item.kind} | {note or '—'} |")
-        lines.extend(["", "---", ""])
-
     lines.extend(render_go_build(tools))
 
     lines.extend(
@@ -746,7 +710,6 @@ def generate_readme(tools: list[Tool]) -> str:
             "## Usage tips",
             "",
             "- Add `bin/`, `bin/aws/`, and `bin/kubernetes/` to your `PATH`, or symlink the tools you use.",
-            "- Edit shell sources in `bin_SHELL/` first, then copy or sync into `bin/`.",
             "- Treat secret exports and backup output as sensitive data.",
             "",
             "<!-- README:AUTO-END -->",

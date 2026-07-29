@@ -13,10 +13,6 @@ on:
       - "scripts/generate_readme.py"
       - ".github/workflows/update-readme.yml"
 
-      # Remove zsh from list
-      # - "bin_SHELL/**"
-      # - "zsh/**"
-
 permissions:
   contents: write
 
