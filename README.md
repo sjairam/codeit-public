@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-08-06 08:29:17 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-08-06 13:23:17 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
@@ -12,6 +12,7 @@ Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 |------|------:|-------------|
 | [`bin/`](bin/) | 14 | Runnable scripts and pre-built binaries |
 | [`go/`](go/) | 4 | Go source and build notes |
+| [`cribl/`](cribl/) | 2 | Cribl Edge scripts |
 
 ## Tool inventory
 
@@ -33,6 +34,7 @@ Auto-generated from repository scan.
 | `delete-pods` | [`bin/kubernetes/delete-pods`](bin/kubernetes/delete-pods) | kubernetes | script | Delete all pods scheduled on a given Kubernetes node. |
 | `export-GW` | [`bin/kubernetes/export-GW`](bin/kubernetes/export-GW) | kubernetes | binary | Export gateway configuration (pre-built binary). |
 | `export-secrets` | [`bin/kubernetes/export-secrets`](bin/kubernetes/export-secrets) | kubernetes | script | Export Kubernetes secrets to per-namespace YAML files. |
+| `cribl-version` | [`cribl/cribl-version.sh`](cribl/cribl-version.sh) | cribl | shell | Report the installed Cribl Edge DaemonSet version across all kube contexts. |
 | `gen-passwd` | [`bin/gen-passwd`](bin/gen-passwd) | general | binary | Interactive password generator with letters, symbols, and numbers. |
 | `gen-passwd` | [`go/gen-passwd.go`](go/gen-passwd.go) | general | go | Interactive password generator with letters, symbols, and numbers. |
 | `github-INFRA` | [`bin/github-INFRA`](bin/github-INFRA) | environment | script | Clones Harvard LTS *-INFRA Git repositories into a local APPS-INFRA folder. |
@@ -155,6 +157,18 @@ Path: [`bin/kubernetes/export-GW`](bin/kubernetes/export-GW) | Type: `binary` | 
 ```
 
 Path: [`bin/kubernetes/export-secrets`](bin/kubernetes/export-secrets) | Type: `script`
+
+---
+
+## Cribl utilities
+
+### `cribl-version` — Report the installed Cribl Edge DaemonSet version across all kube contexts.
+
+```bash
+./cribl/cribl-version.sh
+```
+
+Path: [`cribl/cribl-version.sh`](cribl/cribl-version.sh) | Type: `shell`
 
 ---
 

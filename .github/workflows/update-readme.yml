@@ -10,6 +10,7 @@ on:
     paths:
       - "bin/**"
       - "go/**"
+      - "cribl/**"
       - "scripts/generate_readme.py"
       - ".github/workflows/update-readme.yml"
 

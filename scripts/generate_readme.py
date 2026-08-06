@@ -13,11 +13,11 @@ from typing import Iterable
 ROOT = Path(__file__).resolve().parent.parent
 README_PATH = ROOT / "README.md"
 
-SCAN_DIRS = ("bin", "go")
+SCAN_DIRS = ("bin", "go", "cribl")
 SKIP_NAMES = {".DS_Store", ".gitkeep"}
 SKIP_SUFFIXES = {".pyc"}
 
-SKIP_SCAN_FILES = {"BUILD.md", "functions.txt"}
+SKIP_SCAN_FILES = {"BUILD.md", "functions.txt", "README.md"}
 
 ENV_SPECIFIC = {"backup.sh", "github-INFRA"}
 
@@ -30,6 +30,7 @@ ENV_DESCRIPTIONS = {
 TOOL_DESCRIPTIONS = {
     "aws-list": "List running EC2 instances with ID, name, state, and private IP.",
     "cert-list": "List ACM certificates with optional detail and expired-only filtering.",
+    "cribl-version": "Report the installed Cribl Edge DaemonSet version across all kube contexts.",
     "list-alb": "List Application Load Balancers (name, ARN, and count).",
     "list-rds": "List RDS instances filtered by database engine.",
     "find_alb": "Find the ALB and target group registered to an EC2 instance ID.",
@@ -45,6 +46,7 @@ TOOL_DESCRIPTIONS = {
 
 CATEGORY_ORDER = (
     "aws",
+    "cribl",   
     "kubernetes",
     "general",
     "environment",
@@ -53,6 +55,7 @@ CATEGORY_ORDER = (
 CATEGORY_TITLES = {
     "aws": "AWS utilities",
     "kubernetes": "Kubernetes utilities",
+    "cribl": "Cribl utilities",
     "general": "General utilities",
     "environment": "Environment-specific scripts",
 }
@@ -60,6 +63,7 @@ CATEGORY_TITLES = {
 PATH_CATEGORY_HINTS = {
     "bin/aws": "aws",
     "bin/kubernetes": "kubernetes",
+    "cribl": "cribl",
 }
 
 NAME_CATEGORY_HINTS = {
@@ -79,6 +83,7 @@ NAME_CATEGORY_HINTS = {
     "biggest_files": "general",
     "backup": "environment",
     "github-infra": "environment",
+    "cribl-version": "cribl",
 }
 
 
@@ -505,6 +510,7 @@ def scan_tree_summary() -> list[tuple[str, int, str]]:
     descriptions = {
         "bin": "Runnable scripts and pre-built binaries",
         "go": "Go source and build notes",
+        "cribl": "Cribl Edge scripts",
     }
     for scan_dir in SCAN_DIRS:
         base = ROOT / scan_dir
