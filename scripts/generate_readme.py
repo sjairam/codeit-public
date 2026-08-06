@@ -13,7 +13,7 @@ from typing import Iterable
 ROOT = Path(__file__).resolve().parent.parent
 README_PATH = ROOT / "README.md"
 
-SCAN_DIRS = ("bin", "go", "cribl", "komodor", "kyverno")
+SCAN_DIRS = ("bin", "go", "cribl", "komodor", "kyvero", "wiz")
 SKIP_NAMES = {".DS_Store", ".gitkeep"}
 SKIP_SUFFIXES = {".pyc"}
 
@@ -44,6 +44,7 @@ TOOL_DESCRIPTIONS = {
     "kyverno-versions": "Report installed Kyverno component versions across all kube contexts.",
     "list-alb": "List Application Load Balancers (name, ARN, and count).",
     "list-rds": "List RDS instances filtered by database engine.",
+    "wiz-versions": "Report Wiz component versions across all kube contexts.",
 }
 
 CATEGORY_ORDER = (
@@ -52,6 +53,7 @@ CATEGORY_ORDER = (
     "komodor",
     "kubernetes",
     "kyverno",
+    "wiz",
     "general",
     "environment",
 )
@@ -60,8 +62,9 @@ CATEGORY_TITLES = {
     "aws": "AWS utilities",
     "cribl": "Cribl utilities",
     "komodor": "Komodor utilities",
-    "kyverno": "Kyverno utilities",
     "kubernetes": "Kubernetes utilities",
+    "kyverno": "Kyverno utilities",
+    "wiz": "Wiz utilities",
     "general": "General utilities",
     "environment": "Environment-specific scripts",
 }
@@ -73,10 +76,13 @@ PATH_CATEGORY_HINTS = {
     "cribl": "cribl",
     "komodor": "komodor",
     "kyvero": "kyverno",
+    "wiz": "wiz",
 }
 
 NAME_CATEGORY_HINTS = {
     "aws-list": "aws",
+    "biggest_files": "general",
+    "backup": "environment",
     "cert-list": "aws",
     "find_alb": "aws",
     "list-alb": "aws",
@@ -89,12 +95,11 @@ NAME_CATEGORY_HINTS = {
     "get-ns-secrets": "kubernetes",
     "get_versions": "kubernetes",
     "gen-passwd": "general",
-    "biggest_files": "general",
-    "backup": "environment",
     "github-infra": "environment",
     "cribl-version": "cribl",
     "komodor-version": "komodor",
     "kyverno-versions": "kyverno",
+    "wiz-versions": "wiz",
 }
 
 
@@ -538,6 +543,7 @@ def scan_tree_summary() -> list[tuple[str, int, str]]:
         "cribl": "Cribl Edge scripts",
         "komodor": "Komodor agent scripts",
         "kyvero": "Kyverno policy engine scripts",
+        "wiz": "Wiz security platform scripts",
     }
     for scan_dir in SCAN_DIRS:
         base = ROOT / scan_dir

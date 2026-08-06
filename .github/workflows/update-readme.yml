@@ -5,6 +5,8 @@ on:
     # Daily at 06:00 UTC
     - cron: "0 6 * * *"
   workflow_dispatch:
+  pull:
+    branches: [main, master]
   push:
     branches: [main, master]
     paths:
@@ -13,6 +15,7 @@ on:
       - "cribl/**"
       - "komodor/**"
       - "kyverno/**"
+      - "wiz/**"
       - "scripts/generate_readme.py"
       - ".github/workflows/update-readme.yml"
 

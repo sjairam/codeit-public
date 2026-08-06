@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-08-06 15:36:15 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-08-06 16:02:08 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
@@ -14,7 +14,7 @@ Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 | [`go/`](go/) | 4 | Go source and build notes |
 | [`cribl/`](cribl/) | 2 | Cribl Edge scripts |
 | [`komodor/`](komodor/) | 2 | Komodor agent scripts |
-| [`kyvero/`](kyvero/) | 2 | Kyverno policy engine scripts |
+| [`wiz/`](wiz/) | 2 | Wiz security platform scripts |
 
 ## Tool inventory
 
@@ -35,7 +35,7 @@ Auto-generated from repository scan.
 | `export-secrets` | [`bin/kubernetes/export-secrets`](bin/kubernetes/export-secrets) | kubernetes | script | Export Kubernetes secrets to per-namespace YAML files. |
 | `cribl-version` | [`cribl/cribl-version.sh`](cribl/cribl-version.sh) | cribl | shell | Report the installed Cribl Edge DaemonSet version across all kube contexts. |
 | `komodor-version` | [`komodor/komodor-version.sh`](komodor/komodor-version.sh) | komodor | shell | Report the installed Komodor agent chart version across all kube contexts. |
-| `kyverno-versions` | [`kyvero/kyverno-versions.sh`](kyvero/kyverno-versions.sh) | kyverno | shell | Report installed Kyverno component versions across all kube contexts. |
+| `wiz-versions` | [`wiz/wiz-versions.sh`](wiz/wiz-versions.sh) | wiz | shell | Report Wiz component versions across all kube contexts. |
 | `gen-passwd` | [`bin/gen-passwd`](bin/gen-passwd) | general | binary | Interactive password generator with letters, symbols, and numbers. |
 | `github-INFRA` | [`bin/github-INFRA`](bin/github-INFRA) | environment | script | Clones Harvard LTS *-INFRA Git repositories into a local APPS-INFRA folder. |
 
@@ -176,15 +176,15 @@ Path: [`komodor/komodor-version.sh`](komodor/komodor-version.sh) | Type: `shell`
 
 ---
 
-## Kyverno utilities
+## Wiz utilities
 
-### `kyverno-versions` — Report installed Kyverno component versions across all kube contexts.
+### `wiz-versions` — Report Wiz component versions across all kube contexts.
 
 ```bash
-./kyvero/kyverno-versions.sh
+./wiz/wiz-versions.sh
 ```
 
-Path: [`kyvero/kyverno-versions.sh`](kyvero/kyverno-versions.sh) | Type: `shell`
+Path: [`wiz/wiz-versions.sh`](wiz/wiz-versions.sh) | Type: `shell`
 
 ---
 
