@@ -13,7 +13,7 @@ from typing import Iterable
 ROOT = Path(__file__).resolve().parent.parent
 README_PATH = ROOT / "README.md"
 
-SCAN_DIRS = ("bin", "go", "cribl", "komodor")
+SCAN_DIRS = ("bin", "go", "cribl", "komodor", "kyverno")
 SKIP_NAMES = {".DS_Store", ".gitkeep"}
 SKIP_SUFFIXES = {".pyc"}
 
@@ -29,7 +29,7 @@ ENV_DESCRIPTIONS = {
 
 TOOL_DESCRIPTIONS = {
     "aws-list": "List running EC2 instances with ID, name, state, and private IP.",
-    "biggest_files": "Find the largest files in a directory."
+    "biggest_files": "Find the largest files in a directory.",
     "cert-list": "List ACM certificates with optional detail and expired-only filtering.",
     "cribl-version": "Report the installed Cribl Edge DaemonSet version across all kube contexts.",
     "delete-pods": "Delete all pods scheduled on a given Kubernetes node.",
@@ -41,6 +41,7 @@ TOOL_DESCRIPTIONS = {
     "gen-passwd": "Interactive password generator with letters, symbols, and numbers.",
     "get_versions_v12": "Audit platform component versions across kubectl contexts.",
     "komodor-version": "Report the installed Komodor agent chart version across all kube contexts.",
+    "kyverno-versions": "Report installed Kyverno component versions across all kube contexts.",
     "list-alb": "List Application Load Balancers (name, ARN, and count).",
     "list-rds": "List RDS instances filtered by database engine.",
 }
@@ -50,6 +51,7 @@ CATEGORY_ORDER = (
     "cribl",
     "komodor",
     "kubernetes",
+    "kyverno",
     "general",
     "environment",
 )
@@ -58,6 +60,7 @@ CATEGORY_TITLES = {
     "aws": "AWS utilities",
     "cribl": "Cribl utilities",
     "komodor": "Komodor utilities",
+    "kyverno": "Kyverno utilities",
     "kubernetes": "Kubernetes utilities",
     "general": "General utilities",
     "environment": "Environment-specific scripts",
@@ -69,6 +72,7 @@ PATH_CATEGORY_HINTS = {
     "bin/komodor": "komodor",
     "cribl": "cribl",
     "komodor": "komodor",
+    "kyvero": "kyverno",
 }
 
 NAME_CATEGORY_HINTS = {
@@ -90,6 +94,7 @@ NAME_CATEGORY_HINTS = {
     "github-infra": "environment",
     "cribl-version": "cribl",
     "komodor-version": "komodor",
+    "kyverno-versions": "kyverno",
 }
 
 
@@ -532,6 +537,7 @@ def scan_tree_summary() -> list[tuple[str, int, str]]:
         "go": "Go source and build notes",
         "cribl": "Cribl Edge scripts",
         "komodor": "Komodor agent scripts",
+        "kyvero": "Kyverno policy engine scripts",
     }
     for scan_dir in SCAN_DIRS:
         base = ROOT / scan_dir

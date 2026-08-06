@@ -12,6 +12,7 @@ on:
       - "go/**"
       - "cribl/**"
       - "komodor/**"
+      - "kyverno/**"
       - "scripts/generate_readme.py"
       - ".github/workflows/update-readme.yml"
 
