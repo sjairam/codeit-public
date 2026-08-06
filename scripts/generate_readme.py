@@ -13,7 +13,7 @@ from typing import Iterable
 ROOT = Path(__file__).resolve().parent.parent
 README_PATH = ROOT / "README.md"
 
-SCAN_DIRS = ("bin", "go", "cribl")
+SCAN_DIRS = ("bin", "go", "cribl", "komodor")
 SKIP_NAMES = {".DS_Store", ".gitkeep"}
 SKIP_SUFFIXES = {".pyc"}
 
@@ -29,24 +29,26 @@ ENV_DESCRIPTIONS = {
 
 TOOL_DESCRIPTIONS = {
     "aws-list": "List running EC2 instances with ID, name, state, and private IP.",
+    "biggest_files": "Find the largest files in a directory."
     "cert-list": "List ACM certificates with optional detail and expired-only filtering.",
     "cribl-version": "Report the installed Cribl Edge DaemonSet version across all kube contexts.",
-    "list-alb": "List Application Load Balancers (name, ARN, and count).",
-    "list-rds": "List RDS instances filtered by database engine.",
-    "find_alb": "Find the ALB and target group registered to an EC2 instance ID.",
-    "get-kubectl": "Download and install kubectl for Linux or macOS.",
-    "get-ns-secrets": "List Kubernetes namespaces and optionally export secrets to YAML.",
     "delete-pods": "Delete all pods scheduled on a given Kubernetes node.",
     "export-secrets": "Export Kubernetes secrets to per-namespace YAML files.",
     "export-GW": "Export gateway configuration (pre-built binary).",
-    "get_versions_v12": "Audit platform component versions across kubectl contexts.",
-    "biggest_files": "Find the largest files in a directory.",
+    "find_alb": "Find the ALB and target group registered to an EC2 instance ID.",
+    "get-kubectl": "Download and install kubectl for Linux or macOS.",
+    "get-ns-secrets": "List Kubernetes namespaces and optionally export secrets to YAML.",
     "gen-passwd": "Interactive password generator with letters, symbols, and numbers.",
+    "get_versions_v12": "Audit platform component versions across kubectl contexts.",
+    "komodor-version": "Report the installed Komodor agent chart version across all kube contexts.",
+    "list-alb": "List Application Load Balancers (name, ARN, and count).",
+    "list-rds": "List RDS instances filtered by database engine.",
 }
 
 CATEGORY_ORDER = (
     "aws",
-    "cribl",   
+    "cribl",
+    "komodor",
     "kubernetes",
     "general",
     "environment",
@@ -54,8 +56,9 @@ CATEGORY_ORDER = (
 
 CATEGORY_TITLES = {
     "aws": "AWS utilities",
-    "kubernetes": "Kubernetes utilities",
     "cribl": "Cribl utilities",
+    "komodor": "Komodor utilities",
+    "kubernetes": "Kubernetes utilities",
     "general": "General utilities",
     "environment": "Environment-specific scripts",
 }
@@ -63,7 +66,9 @@ CATEGORY_TITLES = {
 PATH_CATEGORY_HINTS = {
     "bin/aws": "aws",
     "bin/kubernetes": "kubernetes",
+    "bin/komodor": "komodor",
     "cribl": "cribl",
+    "komodor": "komodor",
 }
 
 NAME_CATEGORY_HINTS = {
@@ -84,6 +89,7 @@ NAME_CATEGORY_HINTS = {
     "backup": "environment",
     "github-infra": "environment",
     "cribl-version": "cribl",
+    "komodor-version": "komodor",
 }
 
 
@@ -472,11 +478,19 @@ def apply_description_overrides(tool: Tool) -> None:
 
 
 def tools_for_sections(tools: list[Tool]) -> list[Tool]:
-    """Drop duplicates so bin/ deployables win over Go sources."""
+    """Drop duplicates so bin/ deployables win over Go sources and vendor source dirs."""
     go_binary_stems = {
         normalized_stem(t.path)
         for t in tools
         if t.rel_path.startswith("bin/") and t.is_binary
+    }
+
+    # Track (subdir_name, filename) pairs that exist under bin/ so we can suppress
+    # the matching source-directory copy (e.g. bin/komodor/x.sh beats komodor/x.sh).
+    bin_subdir_files = {
+        (t.path.parent.name, t.path.name)
+        for t in tools
+        if t.rel_path.startswith("bin/") and t.path.parent.name != "bin"
     }
 
     section_tools: list[Tool] = []
@@ -485,6 +499,12 @@ def tools_for_sections(tools: list[Tool]) -> list[Tool]:
         if tool.rel_path.startswith("go/") and tool.path.suffix == ".go" and stem in go_binary_stems:
             continue
         if tool.path.name in SKIP_SCAN_FILES:
+            continue
+        # Skip source-dir scripts that have a deployable copy under bin/<subdir>/
+        if (
+            not tool.rel_path.startswith("bin/")
+            and (tool.path.parent.name, tool.path.name) in bin_subdir_files
+        ):
             continue
         section_tools.append(tool)
 
@@ -511,6 +531,7 @@ def scan_tree_summary() -> list[tuple[str, int, str]]:
         "bin": "Runnable scripts and pre-built binaries",
         "go": "Go source and build notes",
         "cribl": "Cribl Edge scripts",
+        "komodor": "Komodor agent scripts",
     }
     for scan_dir in SCAN_DIRS:
         base = ROOT / scan_dir
@@ -674,7 +695,9 @@ def generate_readme(tools: list[Tool]) -> str:
     for path, count, description in tree:
         lines.append(f"| [`{path}`]({path}) | {count} | {description} |")
 
-    lines.extend(["", *render_inventory(tools)])
+    section_tools = tools_for_sections(tools)
+
+    lines.extend(["", *render_inventory(section_tools)])
 
     if prereqs:
         lines.extend(["## Prerequisites", ""])
@@ -691,8 +714,6 @@ def generate_readme(tools: list[Tool]) -> str:
                 "",
             ]
         )
-
-    section_tools = tools_for_sections(tools)
     grouped: dict[str, list[Tool]] = {cat: [] for cat in CATEGORY_ORDER}
     for tool in section_tools:
         if tool.category not in grouped:

@@ -11,6 +11,7 @@ on:
       - "bin/**"
       - "go/**"
       - "cribl/**"
+      - "komodor/**"
       - "scripts/generate_readme.py"
       - ".github/workflows/update-readme.yml"
 

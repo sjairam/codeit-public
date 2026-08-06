@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-08-06 13:44:52 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-08-06 13:45:10 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
@@ -13,6 +13,7 @@ Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 | [`bin/`](bin/) | 14 | Runnable scripts and pre-built binaries |
 | [`go/`](go/) | 4 | Go source and build notes |
 | [`cribl/`](cribl/) | 2 | Cribl Edge scripts |
+| [`komodor/`](komodor/) | 2 | Komodor agent scripts |
 
 ## Tool inventory
 
@@ -25,18 +26,15 @@ Auto-generated from repository scan.
 | `list-alb` | [`bin/aws/list-alb`](bin/aws/list-alb) | aws | binary | List Application Load Balancers (name, ARN, and count). |
 | `list-rds` | [`bin/aws/list-rds`](bin/aws/list-rds) | aws | binary | List RDS instances filtered by database engine. |
 | `list-secrets` | [`bin/aws/list-secrets`](bin/aws/list-secrets) | aws | script | 01 - initial - jairams 02 - Add AWS CLI check |
-| `list-alb` | [`go/list-alb.go`](go/list-alb.go) | aws | go | List Application Load Balancers (name, ARN, and count). |
-| `list-rds` | [`go/list-rds.go`](go/list-rds.go) | aws | go | List RDS instances filtered by database engine. |
-| `cribl-version` | [`cribl/cribl-version.sh`](cribl/cribl-version.sh) | cribl | shell | Report the installed Cribl Edge DaemonSet version across all kube contexts. |
 | `get-kubectl` | [`bin/get-kubectl`](bin/get-kubectl) | kubernetes | script | Download and install kubectl for Linux or macOS. |
 | `get-ns-secrets` | [`bin/get-ns-secrets`](bin/get-ns-secrets) | kubernetes | script | List Kubernetes namespaces and optionally export secrets to YAML. |
 | `github-TOOLS` | [`bin/github-TOOLS`](bin/github-TOOLS) | kubernetes | script | Elapsed time: $elapsed_minutes minutes and $elapsed_seconds seconds |
-| `komodor-version` | [`bin/komodor/komodor-version.sh`](bin/komodor/komodor-version.sh) | kubernetes | shell | komodor-version.sh.sh Report the installed Komodor agent chart version across... |
 | `delete-pods` | [`bin/kubernetes/delete-pods`](bin/kubernetes/delete-pods) | kubernetes | script | Delete all pods scheduled on a given Kubernetes node. |
 | `export-GW` | [`bin/kubernetes/export-GW`](bin/kubernetes/export-GW) | kubernetes | binary | Export gateway configuration (pre-built binary). |
 | `export-secrets` | [`bin/kubernetes/export-secrets`](bin/kubernetes/export-secrets) | kubernetes | script | Export Kubernetes secrets to per-namespace YAML files. |
+| `cribl-version` | [`cribl/cribl-version.sh`](cribl/cribl-version.sh) | cribl | shell | Report the installed Cribl Edge DaemonSet version across all kube contexts. |
+| `komodor-version` | [`bin/komodor/komodor-version.sh`](bin/komodor/komodor-version.sh) | komodor | shell | Report the installed Komodor agent chart version across all kube contexts. |
 | `gen-passwd` | [`bin/gen-passwd`](bin/gen-passwd) | general | binary | Interactive password generator with letters, symbols, and numbers. |
-| `gen-passwd` | [`go/gen-passwd.go`](go/gen-passwd.go) | general | go | Interactive password generator with letters, symbols, and numbers. |
 | `github-INFRA` | [`bin/github-INFRA`](bin/github-INFRA) | environment | script | Clones Harvard LTS *-INFRA Git repositories into a local APPS-INFRA folder. |
 
 ## Prerequisites
@@ -44,7 +42,7 @@ Auto-generated from repository scan.
 | Tool | Used for | Scripts |
 |------|----------|---------|
 | [AWS CLI v2](https://aws.amazon.com/cli/) | AWS scripts | `aws-list`, `cert-list`, `list-alb`, `list-rds`, `list-secrets` |
-| [kubectl](https://kubernetes.io/docs/tasks/tools/) | Kubernetes scripts | `delete-pods`, `export-GW`, `export-secrets`, `get-kubectl`, `get-ns-secrets`, `github-TOOLS`, `komodor-version` |
+| [kubectl](https://kubernetes.io/docs/tasks/tools/) | Kubernetes scripts | `delete-pods`, `export-GW`, `export-secrets`, `get-kubectl`, `get-ns-secrets`, `github-TOOLS` |
 | [Go](https://go.dev/) | Building binaries from `go/` | `gen-passwd`, `list-alb`, `list-rds` |
 | `curl` | kubectl installer | `get-kubectl` |
 | `python3` (optional) | ACM expiry parsing on macOS | `cert-list` |
@@ -100,18 +98,6 @@ Path: [`bin/aws/list-secrets`](bin/aws/list-secrets) | Type: `script`
 
 ---
 
-## Cribl utilities
-
-### `cribl-version` — Report the installed Cribl Edge DaemonSet version across all kube contexts.
-
-```bash
-./cribl/cribl-version.sh
-```
-
-Path: [`cribl/cribl-version.sh`](cribl/cribl-version.sh) | Type: `shell`
-
----
-
 ## Kubernetes utilities
 
 ### `get-kubectl` — Download and install kubectl for Linux or macOS.
@@ -138,14 +124,6 @@ Path: [`bin/get-ns-secrets`](bin/get-ns-secrets) | Type: `script`
 
 Path: [`bin/github-TOOLS`](bin/github-TOOLS) | Type: `script`
 
-### `komodor-version` — komodor-version.sh.sh Report the installed Komodor agent chart version across all kube contexts.
-
-```bash
-./bin/komodor/komodor-version.sh
-```
-
-Path: [`bin/komodor/komodor-version.sh`](bin/komodor/komodor-version.sh) | Type: `shell`
-
 ### `delete-pods` — Delete all pods scheduled on a given Kubernetes node.
 
 ```bash
@@ -169,6 +147,30 @@ Path: [`bin/kubernetes/export-GW`](bin/kubernetes/export-GW) | Type: `binary` | 
 ```
 
 Path: [`bin/kubernetes/export-secrets`](bin/kubernetes/export-secrets) | Type: `script`
+
+---
+
+## Cribl utilities
+
+### `cribl-version` — Report the installed Cribl Edge DaemonSet version across all kube contexts.
+
+```bash
+./cribl/cribl-version.sh
+```
+
+Path: [`cribl/cribl-version.sh`](cribl/cribl-version.sh) | Type: `shell`
+
+---
+
+## Komodor utilities
+
+### `komodor-version` — Report the installed Komodor agent chart version across all kube contexts.
+
+```bash
+./bin/komodor/komodor-version.sh
+```
+
+Path: [`bin/komodor/komodor-version.sh`](bin/komodor/komodor-version.sh) | Type: `shell`
 
 ---
 
