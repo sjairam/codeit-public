@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-08-06 13:23:17 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-08-06 13:35:27 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
@@ -27,6 +27,7 @@ Auto-generated from repository scan.
 | `list-secrets` | [`bin/aws/list-secrets`](bin/aws/list-secrets) | aws | script | 01 - initial - jairams 02 - Add AWS CLI check |
 | `list-alb` | [`go/list-alb.go`](go/list-alb.go) | aws | go | List Application Load Balancers (name, ARN, and count). |
 | `list-rds` | [`go/list-rds.go`](go/list-rds.go) | aws | go | List RDS instances filtered by database engine. |
+| `cribl-version` | [`cribl/cribl-version.sh`](cribl/cribl-version.sh) | cribl | shell | Report the installed Cribl Edge DaemonSet version across all kube contexts. |
 | `get-kubectl` | [`bin/get-kubectl`](bin/get-kubectl) | kubernetes | script | Download and install kubectl for Linux or macOS. |
 | `get-ns-secrets` | [`bin/get-ns-secrets`](bin/get-ns-secrets) | kubernetes | script | List Kubernetes namespaces and optionally export secrets to YAML. |
 | `github-TOOLS` | [`bin/github-TOOLS`](bin/github-TOOLS) | kubernetes | script | Elapsed time: $elapsed_minutes minutes and $elapsed_seconds seconds |
@@ -34,7 +35,6 @@ Auto-generated from repository scan.
 | `delete-pods` | [`bin/kubernetes/delete-pods`](bin/kubernetes/delete-pods) | kubernetes | script | Delete all pods scheduled on a given Kubernetes node. |
 | `export-GW` | [`bin/kubernetes/export-GW`](bin/kubernetes/export-GW) | kubernetes | binary | Export gateway configuration (pre-built binary). |
 | `export-secrets` | [`bin/kubernetes/export-secrets`](bin/kubernetes/export-secrets) | kubernetes | script | Export Kubernetes secrets to per-namespace YAML files. |
-| `cribl-version` | [`cribl/cribl-version.sh`](cribl/cribl-version.sh) | cribl | shell | Report the installed Cribl Edge DaemonSet version across all kube contexts. |
 | `gen-passwd` | [`bin/gen-passwd`](bin/gen-passwd) | general | binary | Interactive password generator with letters, symbols, and numbers. |
 | `gen-passwd` | [`go/gen-passwd.go`](go/gen-passwd.go) | general | go | Interactive password generator with letters, symbols, and numbers. |
 | `github-INFRA` | [`bin/github-INFRA`](bin/github-INFRA) | environment | script | Clones Harvard LTS *-INFRA Git repositories into a local APPS-INFRA folder. |
@@ -100,6 +100,18 @@ Path: [`bin/aws/list-secrets`](bin/aws/list-secrets) | Type: `script`
 
 ---
 
+## Cribl utilities
+
+### `cribl-version` — Report the installed Cribl Edge DaemonSet version across all kube contexts.
+
+```bash
+./cribl/cribl-version.sh
+```
+
+Path: [`cribl/cribl-version.sh`](cribl/cribl-version.sh) | Type: `shell`
+
+---
+
 ## Kubernetes utilities
 
 ### `get-kubectl` — Download and install kubectl for Linux or macOS.
@@ -157,18 +169,6 @@ Path: [`bin/kubernetes/export-GW`](bin/kubernetes/export-GW) | Type: `binary` | 
 ```
 
 Path: [`bin/kubernetes/export-secrets`](bin/kubernetes/export-secrets) | Type: `script`
-
----
-
-## Cribl utilities
-
-### `cribl-version` — Report the installed Cribl Edge DaemonSet version across all kube contexts.
-
-```bash
-./cribl/cribl-version.sh
-```
-
-Path: [`cribl/cribl-version.sh`](cribl/cribl-version.sh) | Type: `shell`
 
 ---
 
