@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-09-07 11:33:39 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-09-08 10:33:28 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
