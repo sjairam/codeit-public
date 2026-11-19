@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-11-19 22:35:50 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-11-19 22:36:42 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
@@ -10,7 +10,7 @@ Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
 | Path | Files | Description |
 |------|------:|-------------|
-| [`bin/`](bin/) | 13 | Runnable scripts and pre-built binaries |
+| [`bin/`](bin/) | 12 | Runnable scripts and pre-built binaries |
 | [`go/`](go/) | 4 | Go source and build notes |
 
 ## Tool inventory
@@ -19,7 +19,6 @@ Auto-generated from repository scan.
 
 | Name | Path | Category | Type | Description |
 |------|------|----------|------|-------------|
-| `aws-list` | [`bin/aws/aws-list`](bin/aws/aws-list) | aws | script | List running EC2 instances with ID, name, state, and private IP. |
 | `cert-list` | [`bin/aws/cert-list`](bin/aws/cert-list) | aws | script | List ACM certificates with optional detail and expired-only filtering. |
 | `list-alb` | [`bin/aws/list-alb`](bin/aws/list-alb) | aws | binary | List Application Load Balancers (name, ARN, and count). |
 | `list-rds` | [`bin/aws/list-rds`](bin/aws/list-rds) | aws | binary | List RDS instances filtered by database engine. |
@@ -37,7 +36,7 @@ Auto-generated from repository scan.
 
 | Tool | Used for | Scripts |
 |------|----------|---------|
-| [AWS CLI v2](https://aws.amazon.com/cli/) | AWS scripts | `aws-list`, `cert-list`, `list-alb`, `list-rds`, `list-secrets` |
+| [AWS CLI v2](https://aws.amazon.com/cli/) | AWS scripts | `cert-list`, `list-alb`, `list-rds`, `list-secrets` |
 | [kubectl](https://kubernetes.io/docs/tasks/tools/) | Kubernetes scripts | `delete-pods`, `export-GW`, `export-secrets`, `get-kubectl`, `get-ns-secrets`, `github-TOOLS` |
 | [Go](https://go.dev/) | Building binaries from `go/` | `gen-passwd`, `list-alb`, `list-rds` |
 | `curl` | kubectl installer | `get-kubectl` |
@@ -48,14 +47,6 @@ Configure AWS credentials and a valid kubeconfig before running cloud scripts.
 ---
 
 ## AWS utilities
-
-### `aws-list` — List running EC2 instances with ID, name, state, and private IP.
-
-```bash
-./bin/aws/aws-list
-```
-
-Path: [`bin/aws/aws-list`](bin/aws/aws-list) | Type: `script` | Source: [`bin_SHELL/aws-list.sh`](bin_SHELL/aws-list.sh)
 
 ### `cert-list` — List ACM certificates with optional detail and expired-only filtering.
 
