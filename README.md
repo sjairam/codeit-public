@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-11-19 22:36:42 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-11-19 22:36:58 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
@@ -10,7 +10,7 @@ Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
 | Path | Files | Description |
 |------|------:|-------------|
-| [`bin/`](bin/) | 12 | Runnable scripts and pre-built binaries |
+| [`bin/`](bin/) | 11 | Runnable scripts and pre-built binaries |
 | [`go/`](go/) | 4 | Go source and build notes |
 
 ## Tool inventory
@@ -19,7 +19,6 @@ Auto-generated from repository scan.
 
 | Name | Path | Category | Type | Description |
 |------|------|----------|------|-------------|
-| `cert-list` | [`bin/aws/cert-list`](bin/aws/cert-list) | aws | script | List ACM certificates with optional detail and expired-only filtering. |
 | `list-alb` | [`bin/aws/list-alb`](bin/aws/list-alb) | aws | binary | List Application Load Balancers (name, ARN, and count). |
 | `list-rds` | [`bin/aws/list-rds`](bin/aws/list-rds) | aws | binary | List RDS instances filtered by database engine. |
 | `list-secrets` | [`bin/aws/list-secrets`](bin/aws/list-secrets) | aws | script | 01 - initial - jairams 02 - Add AWS CLI check |
@@ -36,25 +35,16 @@ Auto-generated from repository scan.
 
 | Tool | Used for | Scripts |
 |------|----------|---------|
-| [AWS CLI v2](https://aws.amazon.com/cli/) | AWS scripts | `cert-list`, `list-alb`, `list-rds`, `list-secrets` |
+| [AWS CLI v2](https://aws.amazon.com/cli/) | AWS scripts | `list-alb`, `list-rds`, `list-secrets` |
 | [kubectl](https://kubernetes.io/docs/tasks/tools/) | Kubernetes scripts | `delete-pods`, `export-GW`, `export-secrets`, `get-kubectl`, `get-ns-secrets`, `github-TOOLS` |
 | [Go](https://go.dev/) | Building binaries from `go/` | `gen-passwd`, `list-alb`, `list-rds` |
 | `curl` | kubectl installer | `get-kubectl` |
-| `python3` (optional) | ACM expiry parsing on macOS | `cert-list` |
 
 Configure AWS credentials and a valid kubeconfig before running cloud scripts.
 
 ---
 
 ## AWS utilities
-
-### `cert-list` — List ACM certificates with optional detail and expired-only filtering.
-
-```bash
-./bin/aws/cert-list
-```
-
-Path: [`bin/aws/cert-list`](bin/aws/cert-list) | Type: `script` | Source: [`bin_SHELL/cert-list.sh`](bin_SHELL/cert-list.sh)
 
 ### `list-alb` — List Application Load Balancers (name, ARN, and count).
 
