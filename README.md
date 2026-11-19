@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-11-19 15:13:51 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-11-19 22:35:04 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
@@ -13,7 +13,6 @@ Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 | [`bin/`](bin/) | 13 | Runnable scripts and pre-built binaries |
 | [`go/`](go/) | 4 | Go source and build notes |
 | [`cribl/`](cribl/) | 2 | Cribl Edge scripts |
-| [`komodor/`](komodor/) | 2 | Komodor agent scripts |
 | [`wiz/`](wiz/) | 2 | Wiz security platform scripts |
 
 ## Tool inventory
@@ -28,7 +27,6 @@ Auto-generated from repository scan.
 | `list-rds` | [`bin/aws/list-rds`](bin/aws/list-rds) | aws | binary | List RDS instances filtered by database engine. |
 | `list-secrets` | [`bin/aws/list-secrets`](bin/aws/list-secrets) | aws | script | 01 - initial - jairams 02 - Add AWS CLI check |
 | `cribl-version` | [`cribl/cribl-version.sh`](cribl/cribl-version.sh) | cribl | shell | Report the installed Cribl Edge DaemonSet version across all kube contexts. |
-| `komodor-version` | [`komodor/komodor-version.sh`](komodor/komodor-version.sh) | komodor | shell | Report the installed Komodor agent chart version across all kube contexts. |
 | `get-kubectl` | [`bin/get-kubectl`](bin/get-kubectl) | kubernetes | script | Download and install kubectl for Linux or macOS. |
 | `get-ns-secrets` | [`bin/get-ns-secrets`](bin/get-ns-secrets) | kubernetes | script | List Kubernetes namespaces and optionally export secrets to YAML. |
 | `github-TOOLS` | [`bin/github-TOOLS`](bin/github-TOOLS) | kubernetes | script | Elapsed time: $elapsed_minutes minutes and $elapsed_seconds seconds |
@@ -109,18 +107,6 @@ Path: [`bin/aws/list-secrets`](bin/aws/list-secrets) | Type: `script`
 ```
 
 Path: [`cribl/cribl-version.sh`](cribl/cribl-version.sh) | Type: `shell`
-
----
-
-## Komodor utilities
-
-### `komodor-version` — Report the installed Komodor agent chart version across all kube contexts.
-
-```bash
-./komodor/komodor-version.sh
-```
-
-Path: [`komodor/komodor-version.sh`](komodor/komodor-version.sh) | Type: `shell`
 
 ---
 
