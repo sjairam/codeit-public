@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-11-21 19:54:33 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-11-21 19:54:57 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
@@ -10,7 +10,7 @@ Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
 | Path | Files | Description |
 |------|------:|-------------|
-| [`bin/`](bin/) | 10 | Runnable scripts and pre-built binaries |
+| [`bin/`](bin/) | 9 | Runnable scripts and pre-built binaries |
 | [`go/`](go/) | 4 | Go source and build notes |
 
 ## Tool inventory
@@ -20,8 +20,8 @@ Auto-generated from repository scan.
 | Name | Path | Category | Type | Description |
 |------|------|----------|------|-------------|
 | `list-alb` | [`bin/aws/list-alb`](bin/aws/list-alb) | aws | binary | List Application Load Balancers (name, ARN, and count). |
-| `list-rds` | [`bin/aws/list-rds`](bin/aws/list-rds) | aws | binary | List RDS instances filtered by database engine. |
 | `list-secrets` | [`bin/aws/list-secrets`](bin/aws/list-secrets) | aws | script | 01 - initial - jairams 02 - Add AWS CLI check |
+| `list-rds` | [`go/list-rds.go`](go/list-rds.go) | aws | go | List RDS instances filtered by database engine. |
 | `get-kubectl` | [`bin/get-kubectl`](bin/get-kubectl) | kubernetes | script | Download and install kubectl for Linux or macOS. |
 | `get-ns-secrets` | [`bin/get-ns-secrets`](bin/get-ns-secrets) | kubernetes | script | List Kubernetes namespaces and optionally export secrets to YAML. |
 | `github-TOOLS` | [`bin/github-TOOLS`](bin/github-TOOLS) | kubernetes | script | Elapsed time: $elapsed_minutes minutes and $elapsed_seconds seconds |
@@ -56,14 +56,6 @@ Options:
 
 Path: [`bin/aws/list-alb`](bin/aws/list-alb) | Type: `binary` | Source: [`go/list-alb.go`](go/list-alb.go) | Pre-built binary (rebuild from Go source where available)
 
-### `list-rds` — List RDS instances filtered by database engine.
-
-```bash
-=
-```
-
-Path: [`bin/aws/list-rds`](bin/aws/list-rds) | Type: `binary` | Source: [`go/list-rds.go`](go/list-rds.go) | Pre-built binary (rebuild from Go source where available)
-
 ### `list-secrets` — 01 - initial - jairams 02 - Add AWS CLI check
 
 ```bash
@@ -71,6 +63,14 @@ Path: [`bin/aws/list-rds`](bin/aws/list-rds) | Type: `binary` | Source: [`go/lis
 ```
 
 Path: [`bin/aws/list-secrets`](bin/aws/list-secrets) | Type: `script`
+
+### `list-rds` — List RDS instances filtered by database engine.
+
+```bash
+=
+```
+
+Path: [`go/list-rds.go`](go/list-rds.go) | Type: `go`
 
 ---
 
