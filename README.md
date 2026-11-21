@@ -2,7 +2,7 @@
 
 Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
-> **Auto-generated** — last scanned **2026-11-21 14:11:26 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
+> **Auto-generated** — last scanned **2026-11-21 19:54:33 UTC**. Manual edits outside the marked block may be overwritten by the daily workflow.
 
 <!-- README:AUTO-START -->
 
@@ -10,7 +10,7 @@ Public scripts and small utilities for AWS, Kubernetes, and day-to-day ops work.
 
 | Path | Files | Description |
 |------|------:|-------------|
-| [`bin/`](bin/) | 11 | Runnable scripts and pre-built binaries |
+| [`bin/`](bin/) | 10 | Runnable scripts and pre-built binaries |
 | [`go/`](go/) | 4 | Go source and build notes |
 
 ## Tool inventory
@@ -29,7 +29,6 @@ Auto-generated from repository scan.
 | `export-GW` | [`bin/kubernetes/export-GW`](bin/kubernetes/export-GW) | kubernetes | binary | Export gateway configuration (pre-built binary). |
 | `export-secrets` | [`bin/kubernetes/export-secrets`](bin/kubernetes/export-secrets) | kubernetes | script | Export Kubernetes secrets to per-namespace YAML files. |
 | `gen-passwd` | [`bin/gen-passwd`](bin/gen-passwd) | general | binary | Interactive password generator with letters, symbols, and numbers. |
-| `github-INFRA` | [`bin/github-INFRA`](bin/github-INFRA) | environment | script | Clones Harvard LTS *-INFRA Git repositories into a local APPS-INFRA folder. |
 
 ## Prerequisites
 
@@ -136,18 +135,6 @@ Path: [`bin/kubernetes/export-secrets`](bin/kubernetes/export-secrets) | Type: `
 ```
 
 Path: [`bin/gen-passwd`](bin/gen-passwd) | Type: `binary` | Source: [`go/gen-passwd.go`](go/gen-passwd.go) | Pre-built binary (rebuild from Go source where available)
-
----
-
-## Environment-specific scripts
-
-### `github-INFRA` — Clones Harvard LTS *-INFRA Git repositories into a local APPS-INFRA folder.
-
-```bash
-./bin/github-INFRA
-```
-
-Path: [`bin/github-INFRA`](bin/github-INFRA) | Type: `script`
 
 ---
 
